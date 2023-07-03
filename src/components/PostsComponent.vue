@@ -5,7 +5,7 @@
         <button @click="sayHello">sayHello</button>
         <PostComponent/>
         <CreatePersonComponent/>
-
+        <ListPersonComponent/>
     </div>
 </template>
 
@@ -13,7 +13,7 @@
 <style scoped>
 .posts {
     background-color: #a3ed57;
-    height: 600px;
+    height: auto;
     margin: 40px;
 }
 </style>
@@ -22,6 +22,7 @@
 <script>
 import PostComponent from "./PostComponent";
 import CreatePersonComponent from "./CreatePersonComponent";
+import ListPersonComponent from "@/components/ListPersonComponent";
 
 export default {
     name: "PostsComponent",
@@ -31,6 +32,7 @@ export default {
     },
 
     components: {
+        ListPersonComponent,
         PostComponent,
         CreatePersonComponent
     },
