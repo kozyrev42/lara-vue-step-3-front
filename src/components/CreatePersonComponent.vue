@@ -41,10 +41,17 @@ export default {
                 })
                 .then(response => {
                     console.log(response.data);
+
+                    // вызвать метода из сестринского компонента, который обновит список персон
+                    this.$parent.$refs.listPersonComponent.getPersone();
                 })
                 .catch(error => {
                     console.log(error);
                 });
+        },
+
+        createPersonLog() {
+            console.log('вызван метод createPersonLog из компонента CreatePersonComponent');
         }
     }
 }

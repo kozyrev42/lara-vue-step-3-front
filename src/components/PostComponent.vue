@@ -1,6 +1,9 @@
 <template>
     <div class="post">
         <h5>PostComponent +</h5>
+        <div>
+            {{myTestObject}}
+        </div>
     </div>
 </template>
 
@@ -23,6 +26,13 @@ export default {
     mounted() {
         this.getUsers();
         this.testApi();
+    },
+
+    props: {
+        myTestObject: {
+            type: Object,
+            required: true
+        }
     },
 
     methods: {

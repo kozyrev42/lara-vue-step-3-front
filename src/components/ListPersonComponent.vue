@@ -11,6 +11,7 @@
         </tr>
         </thead>
         <tbody>
+
         <template v-for="person in persons" :key="person.id">
             <tr :class="isEditPerson(person.id) ? 'd-none' : ''">
                 <th scope="row">{{ person.id }}</th>
@@ -20,7 +21,6 @@
                 <td><button @click="changeEditPersonId(person.id, person.name, person.job, person.age)" class="btn btn-primary">edit</button></td>
                 <td><button @click="deletePerson(person.id)" class="btn btn-danger">delete</button></td>
             </tr>
-
             <tr :class="isEditPerson(person.id) ? '' : 'd-none'"> <!-- реактивное отслеживание, на подстановку класс -->
                 <th scope="row">{{ person.id }}</th>
                 <td><input v-model="name" type="text" class="form-control" ></td>
@@ -28,7 +28,6 @@
                 <td><input v-model="age" type="number" class="form-control" ></td>
                 <td><button @click="updatePerson(person.id)" class="btn btn-success">сохранить</button></td>
             </tr>
-
         </template>
         </tbody>
     </table>
@@ -41,7 +40,9 @@ export default {
     components: {},
 
     mounted() {
-        this.getPersone()
+        this.getPersone();
+        this.$parent.parentMethodlog();
+        this.$parent.$refs.createPersonComponent.createPersonLog();
     },
 
     data() {
@@ -113,6 +114,10 @@ export default {
                 .catch(error => {
                     console.log(error);
                 });
+        },
+
+        listPersonLog() {
+            console.log('вызов метода из компонента ListPersonComponent')
         }
     }
 }

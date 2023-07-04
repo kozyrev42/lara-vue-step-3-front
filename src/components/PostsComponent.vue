@@ -3,9 +3,9 @@
         <h1>PostsComponent +++</h1>
 
         <button @click="sayHello">sayHello</button>
-        <PostComponent/>
-        <CreatePersonComponent/>
-        <ListPersonComponent/>
+        <PostComponent :myTestObject="dataInPosts"/>
+        <CreatePersonComponent ref="createPersonComponent"/>
+        <ListPersonComponent ref="listPersonComponent"/>
     </div>
 </template>
 
@@ -14,7 +14,8 @@
 .posts {
     background-color: #a3ed57;
     height: auto;
-    margin: 40px;
+    margin: 20px;
+    padding: 30px;
 }
 </style>
 
@@ -28,7 +29,8 @@ export default {
     name: "PostsComponent",
 
     mounted() {
-        console.log('Component mounted.')
+        console.log('Component mounted.');
+        this.$refs.listPersonComponent.listPersonLog();
     },
 
     components: {
@@ -38,12 +40,18 @@ export default {
     },
 
     data() {
-        return {}
+        return {
+            dataInPosts: 'данные из PostsComponent'
+        }
     },
 
     methods: {
         sayHello() {
             console.log('Привет из PostsComponent')
+        },
+
+        parentMethodlog() {
+            console.log('Привет из PostsComponent, parentMethodlog')
         }
     }
 }
