@@ -23,7 +23,7 @@
 <script>
 import PostComponent from "./PostComponent";
 import CreatePersonComponent from "./CreatePersonComponent";
-import ListPersonComponent from "@/components/ListPersonComponent";
+import ListPersonComponent from "./ListPersonComponent";
 
 export default {
     name: "PostsComponent",

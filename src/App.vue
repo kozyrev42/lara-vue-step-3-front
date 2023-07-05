@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    <PostsComponent/>
+      <router-view></router-view>
   </div>
 </template>
 
 <script>
-import PostsComponent from "@/components/PostsComponent";
 
 export default {
   name: 'App',
   components: {
-    PostsComponent
+    // ничего не импортируем, так как используем роутинг
   }
 }
 </script>
