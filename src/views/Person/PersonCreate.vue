@@ -10,7 +10,7 @@
             <input v-model="age" type="number" class="form-control" id="age" placeholder="age">
         </div>
         <div class="mb-2">
-            <button @click="createPerson" class="btn btn-primary">добавить</button>
+            <button :disabled="isDisabled" @click="createPerson" class="btn btn-primary">добавить</button>
         </div>
     </div>
 </template>
@@ -25,6 +25,13 @@ export default {
             name: '',
             job: '',
             age: null
+        }
+    },
+
+    // вычисляемое свойство, которое возвращает true, если хотя бы одно из полей пустое
+    computed: {
+        isDisabled() {
+            return this.name === '' || this.job === '' || this.age === null || this.age === '';
         }
     },
 
