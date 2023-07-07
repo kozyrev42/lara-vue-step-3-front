@@ -21,7 +21,6 @@ export default {
 
     data() {
         return {
-
             name: '',
             job: '',
             age: null

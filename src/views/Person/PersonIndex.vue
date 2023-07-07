@@ -20,7 +20,7 @@
                     <td>
                         <router-link :to="`/persons/${person.id}/edit`" class="btn btn-primary">Редактировать</router-link>
                     </td>
-                    <td><button @click="deletePerson(person.id)" class="btn btn-danger">Удалить</button></td>
+                    <td><button @click="$store.dispatch('deletePerson', person.id)" class="btn btn-danger">Удалить</button></td>
                 </tr>
             </template>
         </tbody>
@@ -31,41 +31,25 @@
 export default {
     name: "PersonIndex",
 
-    data() {
-        return {
-            persons: null,
+    computed: {
+        persons() {
+            return this.$store.getters.persons;
         }
     },
 
     mounted() {
-        this.getPersone();
+        this.$store.dispatch('getPersons');
+
+    },
+
+    data() {
+        return {
+            // свойство persons перенесено в src\store\modules\person.js
+        }
     },
 
     methods: {
-        getPersone() {
-            this.$axios
-                .get(`${process.env.VUE_APP_BASE_URL}/api/person/get`)
-                .then(data => {
-                    this.persons = data.data
-                })
-
-                .catch(error => {
-                    console.log(error)
-                })
-        },
-
-        deletePerson(id) {
-            this.$axios
-                .delete(`${process.env.VUE_APP_BASE_URL}/api/person/delete/${id}`)
-                .then(response => {
-                    console.log(response.data);
-
-                    this.getPersone()
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        },
+        // методы перенесены в src\store\modules\person.js
     },
 }
 </script>
