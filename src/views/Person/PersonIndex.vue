@@ -1,11 +1,11 @@
 <template>
-    <table class="table table-success table-striped">
+    <table class="table table-secondary table-striped">
         <thead>
         <tr>
             <th scope="col">id</th>
-            <th scope="col">name</th>
-            <th scope="col">job</th>
-            <th scope="col">age</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Профессия</th>
+            <th scope="col">Возраст</th>
             <th scope="col"></th>
             <th scope="col"></th>
         </tr>

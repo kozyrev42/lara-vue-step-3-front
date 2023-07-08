@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <router-link to="/persons" class="btn btn-success mb-2">PersonsList </router-link><br>
-        <router-link to="/persons/create" class="btn btn-success mb-2">Create</router-link>
+        <router-link to="/persons" class="btn btn-outline-success mb-2">Список пользователей</router-link><br>
+        <router-link to="/persons/create" class="btn btn-outline-primary mb-2">Создать пользователя</router-link>
         <router-view></router-view>
     </div>
 </template>
